@@ -7,8 +7,7 @@ using DataStructures, Symbolics, SymbolicUtils, Catalyst, SparseArrays
 # @parameters t
 # S₁ = funcsym(S,1)
 # u = S₁(t)
-function funcsym(S::Symbol, t, args...)
-    #Num(Symbolics.variable(S,args...; T=ModelingToolkit.FnType{Tuple{Any},Real}))
+function funcsym(S::Symbol, t, args...)    
     S = Symbol(S,args...)
     (@variables $(S)(t))[1]
 end
